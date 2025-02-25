@@ -1,4 +1,4 @@
-package assignment.birds;
+package assignment.whales;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
