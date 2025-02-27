@@ -17,7 +17,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws assignment/birds/DictionaryException.java
      */
     @Override
-    public BirdRecord find(DataKey k) throws DictionaryException {
+    public WhaleRecord find(DataKey k) throws DictionaryException {
         Node current = root;
         int comparison;
         if (root.isEmpty()) {         
@@ -54,7 +54,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws birds.DictionaryException
      */
     @Override
-    public void insert(BirdRecord r) throws DictionaryException {
+    public void insert(WhaleRecord r) throws DictionaryException {
         // Write this method
         Node current = root;
         int comparison;
@@ -143,7 +143,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws birds.DictionaryException
      */
     @Override
-    public BirdRecord successor(DataKey k) throws DictionaryException{
+    public WhaleRecord successor(DataKey k) throws DictionaryException{
         // Write this method
         Node current = root;
         Node successorNode = null;
@@ -191,7 +191,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws birds.DictionaryException
      */
     @Override
-    public BirdRecord predecessor(DataKey k) throws DictionaryException{
+    public WhaleRecord predecessor(DataKey k) throws DictionaryException{
         Node current = root;
         Node predecessorNode = null;
         if (root.isEmpty()) {
@@ -231,7 +231,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @return
      */
     @Override
-    public BirdRecord smallest() throws DictionaryException{
+    public WhaleRecord smallest() throws DictionaryException{
         // Write this method
         if (root.isEmpty()) {
             return null;
@@ -248,7 +248,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
 	 * null if the dictionary is empty.
      */
     @Override
-    public BirdRecord largest() throws DictionaryException{
+    public WhaleRecord largest() throws DictionaryException{
         // Write this method
         if (root.isEmpty()) {
             return null;
