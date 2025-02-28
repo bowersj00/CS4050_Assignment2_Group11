@@ -56,14 +56,22 @@ public class OrderedDictionary implements OrderedDictionaryADT {
     @Override
     public void insert(WhaleRecord r) throws DictionaryException {
         // Write this method
+
+        if (r == null || r.getDataKey() == null) {
+            throw new DictionaryException("Cannot insert record with null DataKey");
+        }
         Node current = root;
         int comparison;
         if (root.isEmpty()) {
             root = new Node(r);
+            return;
         }
         //loop through bst
         while (true) {
             System.out.println(current.getData().getAbout());
+            if (current.getData().getDataKey() == null || r.getDataKey() == null) {
+                throw new DictionaryException("GetDataKey returns null");
+            }
             comparison = current.getData().getDataKey().compareTo(r.getDataKey());
             if (comparison == 0) { // record with the same key already exists
                 throw new DictionaryException("A record with the given key already exists");
