@@ -155,18 +155,44 @@ public class WhalesController implements Initializable {
 
     public void first() {
         // Write this method
+        try {
+            this.whale = database.smallest();
+            this.showWhale();
+        }
+        catch(Exception e){
+            displayAlert("There are no Whales loaded");
+        }
     }
 
     public void last() {
         // Write this method
+        try {
+            this.whale = database.largest();
+            this.showWhale();
+        }
+        catch(Exception e){
+            displayAlert("There are no Whales loaded");
+        }
     }
 
     public void next() {
-        // Write this method;
+        try {
+            this.whale = database.successor(whale.getDataKey());
+            this.showWhale();
+        }
+        catch(Exception e){
+            displayAlert("This is the last Whale");
+        }
     }
 
     public void previous() {
-        // Write this method
+        try {
+            this.whale = database.predecessor(whale.getDataKey());
+            this.showWhale();
+        }
+        catch(Exception e){
+            displayAlert("This is the first Whale");
+        }
     }
 
     public void play() {
@@ -178,7 +204,7 @@ public class WhalesController implements Initializable {
         player.play();
     }
 
-    public void puase() {
+    public void pause() {
         play.setDisable(false);
         puase.setDisable(true);
         if (player != null) {

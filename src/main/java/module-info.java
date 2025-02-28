@@ -1,4 +1,4 @@
-module assignment.birds {
+module assignment.whales {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.logging;

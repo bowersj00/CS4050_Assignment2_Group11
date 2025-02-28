@@ -14,7 +14,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      *
      * @param k
      * @return
-     * @throws assignment/birds/DictionaryException.java
+     * @throws assignment/whales/DictionaryException.java
      */
     @Override
     public WhaleRecord find(DataKey k) throws DictionaryException {
@@ -51,7 +51,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * a record with the same key as r is already in the dictionary.
      *
      * @param r
-     * @throws birds.DictionaryException
+     * @throws whales.DictionaryException
      */
     @Override
     public void insert(WhaleRecord r) throws DictionaryException {
@@ -63,6 +63,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
         }
         //loop through bst
         while (true) {
+            System.out.println(current.getData().getAbout());
             comparison = current.getData().getDataKey().compareTo(r.getDataKey());
             if (comparison == 0) { // record with the same key already exists
                 throw new DictionaryException("A record with the given key already exists");
@@ -92,7 +93,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * DictionaryException if the record is not in the dictionary.
      *
      * @param k
-     * @throws birds.DictionaryException
+     * @throws whales.DictionaryException
      */
     @Override
     public void remove(DataKey k) throws DictionaryException {
@@ -140,7 +141,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      *
      * @param k
      * @return
-     * @throws birds.DictionaryException
+     * @throws whales.DictionaryException
      */
     @Override
     public WhaleRecord successor(DataKey k) throws DictionaryException{
@@ -188,7 +189,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      *
      * @param k
      * @return
-     * @throws birds.DictionaryException
+     * @throws whales.DictionaryException
      */
     @Override
     public WhaleRecord predecessor(DataKey k) throws DictionaryException{
