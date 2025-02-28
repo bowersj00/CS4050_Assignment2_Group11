@@ -15,7 +15,7 @@ public class Whales extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("whales-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("whale-view.fxml"));
 
         Scene scene = new Scene(root);
 
