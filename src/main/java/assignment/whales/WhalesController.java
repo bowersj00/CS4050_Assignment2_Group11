@@ -232,7 +232,11 @@ public class WhalesController implements Initializable {
                         break;
                     default:
                         description = data;
-                        database.insert(new WhaleRecord(new DataKey(whaleName, size), description, whaleName + ".mp3", whaleName + ".jpg"));
+                        //database.insert(new WhaleRecord(new DataKey(whaleName, size), description, whaleName + ".mp3", whaleName + ".jpg"));
+                        DataKey key = new DataKey(whaleName, size);
+                        WhaleRecord record = new WhaleRecord(key, description, whaleName + ".mp3", whaleName + ".jpg");
+                        database.insert(record);
+
                         break;
                 }
                 line++;
