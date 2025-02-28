@@ -12,7 +12,7 @@ public interface OrderedDictionaryADT {
        @return BirdRecord
        @throws DictionaryException
      */
-    public BirdRecord find(DataKey k) throws DictionaryException;
+    public WhalesRecord find(DataKey k) throws DictionaryException;
 
     /* Inserts r into the ordered dictionary. It throws a DictionaryException 
        if a record with the same key as r is already in the dictionary.  
@@ -20,7 +20,7 @@ public interface OrderedDictionaryADT {
        @param r
        @throws DictionaryException
      */
-    public void insert(BirdRecord r) throws DictionaryException;
+    public void insert(WhalesRecord r) throws DictionaryException;
 
     /*  Removes the record with Key k from the dictionary. It throws a 
         DictionaryException says: "No such record key exists", if the record
@@ -40,7 +40,7 @@ public interface OrderedDictionaryADT {
        @return BirdRecord
        @throws DictionaryException
      */
-    public BirdRecord successor(DataKey k) throws DictionaryException;
+    public WhalesRecord successor(DataKey k) throws DictionaryException;
 
     /* Returns the predecessor of k (the record from the ordered dictionary 
        with largest key smaller than k; It throws a DictionaryException says:
@@ -51,7 +51,7 @@ public interface OrderedDictionaryADT {
        @return BirdRecord
        @throws DictionaryException
      */
-    public BirdRecord predecessor(DataKey k) throws DictionaryException;
+    public WhalesRecord predecessor(DataKey k) throws DictionaryException;
 
     /* Returns the record with smallest key in the ordered dictionary. 
        It throws a DictionaryException says:"Dictionary is empty", if the 
@@ -60,7 +60,7 @@ public interface OrderedDictionaryADT {
        @return BirdRecord
        @throws DictionaryException
      */
-    public BirdRecord smallest() throws DictionaryException;
+    public WhalesRecord smallest() throws DictionaryException;
 
     /* Returns the record with largest key in the ordered dictionary. 
        It throws a DictionaryException says:"Dictionary is empty", if the 
@@ -68,7 +68,7 @@ public interface OrderedDictionaryADT {
        @return BirdRecord
        @throws DictionaryException
      */
-    public BirdRecord largest() throws DictionaryException;
+    public WhalesRecord largest() throws DictionaryException;
 
     /* Returns true if the dictionary is empty, and true otherwise. 
 
