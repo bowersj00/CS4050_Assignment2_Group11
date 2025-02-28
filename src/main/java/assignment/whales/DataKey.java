@@ -27,9 +27,9 @@ public class DataKey {
 	 * than k, and it returns 1 otherwise. 
 	 */
 	public int compareTo(DataKey k) {
-            if (this.getWhaleSize() == k.getWhaleSize()) {
-                int compare = this.whaleName.compareTo(k.getWhaleName());
-                if (compare == 0){
+            if (this.getWhaleSize() == k.getWhaleSize() || k.getWhaleSize() == 0) {
+                int compare = this.whaleName.compareToIgnoreCase(k.getWhaleName());
+                if (compare == 0 || this.whaleName.contains(k.getWhaleName())){
                      return 0;
                 } 
                 else if (compare < 0) {
@@ -43,3 +43,5 @@ public class DataKey {
             
 	}
 }
+
+

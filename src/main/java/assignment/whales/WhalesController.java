@@ -60,7 +60,7 @@ public class WhalesController implements Initializable {
     }
 
     public void find() {
-        DataKey key = new DataKey(this.name.getText(), whaleSize);
+        DataKey key = new DataKey(this.name.getText(), this.size.getSelectionModel().getSelectedIndex());
         try {
              whale = database.find(key);
             showWhale();
@@ -155,42 +155,51 @@ public class WhalesController implements Initializable {
 
     public void first() {
         // Write this method
+        WhaleRecord temp = this.whale;
         try {
             this.whale = database.smallest();
             this.showWhale();
         }
         catch(Exception e){
+            this.whale = temp;
             displayAlert("There are no Whales loaded");
         }
     }
 
     public void last() {
         // Write this method
+        WhaleRecord temp = this.whale;
         try {
             this.whale = database.largest();
             this.showWhale();
         }
         catch(Exception e){
+            this.whale = temp;
             displayAlert("There are no Whales loaded");
         }
     }
 
     public void next() {
+        WhaleRecord temp = this.whale;
         try {
             this.whale = database.successor(whale.getDataKey());
             this.showWhale();
         }
         catch(Exception e){
+            this.whale = temp;
             displayAlert("This is the last Whale");
         }
     }
 
     public void previous() {
+        WhaleRecord temp = this.whale;
         try {
+
             this.whale = database.predecessor(whale.getDataKey());
             this.showWhale();
         }
         catch(Exception e){
+            this.whale = temp;
             displayAlert("This is the first Whale");
         }
     }
@@ -201,6 +210,7 @@ public class WhalesController implements Initializable {
         player = new MediaPlayer(media);
         play.setDisable(true);
         puase.setDisable(false);
+        player.setCycleCount(MediaPlayer.INDEFINITE);
         player.play();
     }
 
@@ -209,6 +219,7 @@ public class WhalesController implements Initializable {
         puase.setDisable(true);
         if (player != null) {
             player.stop();
+            //player.setAutoPlay(false);
         }
     }
 
@@ -247,6 +258,7 @@ public class WhalesController implements Initializable {
         } catch (DictionaryException ex) {
             Logger.getLogger(WhalesController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         this.WhalePortal.setVisible(true);
         this.first();
     }
@@ -255,9 +267,9 @@ public class WhalesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         database = new OrderedDictionary();
         size.setItems(FXCollections.observableArrayList(
-                "Small", "Medium", "Large"
+                "No specific size","Small", "Medium", "Large"
         ));
-        size.setValue("Small");
+        size.setValue("No specific size");
     }
 
 }

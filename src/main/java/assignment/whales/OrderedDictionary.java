@@ -68,7 +68,6 @@ public class OrderedDictionary implements OrderedDictionaryADT {
         }
         //loop through bst
         while (true) {
-            System.out.println(current.getData().getAbout());
             if (current.getData().getDataKey() == null || r.getDataKey() == null) {
                 throw new DictionaryException("GetDataKey returns null");
             }
