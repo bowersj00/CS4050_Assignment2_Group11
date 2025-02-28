@@ -37,7 +37,7 @@ public interface OrderedDictionaryADT {
        no successor. The given key DOES NOT need to be in the dictionary. 
          
        @param k
-       @return BirdRecord
+       @return WhaleRecord
        @throws DictionaryException
      */
     public WhaleRecord successor(DataKey k) throws DictionaryException;
@@ -48,7 +48,7 @@ public interface OrderedDictionaryADT {
        no predecessor. The given key DOES NOT need to be in the dictionary.  
      
        @param k
-       @return BirdRecord
+       @return WhaleRecord
        @throws DictionaryException
      */
     public WhaleRecord predecessor(DataKey k) throws DictionaryException;
@@ -57,7 +57,7 @@ public interface OrderedDictionaryADT {
        It throws a DictionaryException says:"Dictionary is empty", if the 
        dictionary is empty.   
 
-       @return BirdRecord
+       @return WhaleRecord
        @throws DictionaryException
      */
     public WhaleRecord smallest() throws DictionaryException;
@@ -65,7 +65,7 @@ public interface OrderedDictionaryADT {
     /* Returns the record with largest key in the ordered dictionary. 
        It throws a DictionaryException says:"Dictionary is empty", if the 
        dictionary is empty.  
-       @return BirdRecord
+       @return WhaleRecord
        @throws DictionaryException
      */
     public WhaleRecord largest() throws DictionaryException;
