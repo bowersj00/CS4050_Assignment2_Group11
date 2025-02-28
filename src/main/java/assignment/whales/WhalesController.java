@@ -62,7 +62,7 @@ public class WhalesController implements Initializable {
     public void find() {
         DataKey key = new DataKey(this.name.getText(), this.size.getSelectionModel().getSelectedIndex());
         try {
-             whale = database.find(key);
+            whale = database.find(key);
             showWhale();
         } catch (DictionaryException ex) {
             displayAlert(ex.getMessage());

@@ -200,6 +200,10 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public WhaleRecord predecessor(DataKey k) throws DictionaryException{
+        if(findMin(root).getData().getDataKey() == k){
+            throw new DictionaryException("This is the first whale");
+        }
+
         Node current = root;
         Node predecessorNode = null;
         if (root.isEmpty()) {
@@ -216,7 +220,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
                 predecessorNode = current;
                 current = current.getRightChild();
             } else {
-                if (current.getRightChild() != null) {
+                if (current.getLeftChild() != null) {
                     predecessorNode = findMax(current.getLeftChild());
                 }
             }

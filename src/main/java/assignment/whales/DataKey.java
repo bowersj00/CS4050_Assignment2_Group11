@@ -29,7 +29,7 @@ public class DataKey {
 	public int compareTo(DataKey k) {
             if (this.getWhaleSize() == k.getWhaleSize() || k.getWhaleSize() == 0) {
                 int compare = this.whaleName.compareToIgnoreCase(k.getWhaleName());
-                if (compare == 0 || this.whaleName.contains(k.getWhaleName())){
+                if (compare == 0 || this.whaleName.toLowerCase().contains(k.getWhaleName().toLowerCase())){
                      return 0;
                 } 
                 else if (compare < 0) {
@@ -40,7 +40,6 @@ public class DataKey {
                     return -1;
             }
             return 1;
-            
 	}
 }
 
