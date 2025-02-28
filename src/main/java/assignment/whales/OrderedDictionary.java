@@ -63,6 +63,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
         }
         //loop through bst
         while (true) {
+            System.out.println(current.getData().getAbout());
             comparison = current.getData().getDataKey().compareTo(r.getDataKey());
             if (comparison == 0) { // record with the same key already exists
                 throw new DictionaryException("A record with the given key already exists");

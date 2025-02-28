@@ -18,8 +18,6 @@ import javafx.scene.control.Label;
  */
 public class AlertController implements Initializable {
 
-    
-    
     @FXML public Label error;
     private URL location;
     private ResourceBundle resources;
@@ -36,7 +34,6 @@ public class AlertController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.location = url;
         this.resources = rb;
-
     }    
     
 }
