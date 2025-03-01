@@ -70,6 +70,11 @@
                             </font>
 
                         </Label>
+                        <Label fx:id="whaleSizeLabel" textFill="BLACK" prefHeight="27.0" prefWidth="408.0" text="Label" >
+                            <HBox.margin>
+                                <Insets left="20.0" top="30.0" />
+                            </HBox.margin>
+                        </Label>
                         <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="795.0">
                             <VBox.margin>
                                 <Insets bottom="20.0" left="40.0" right="40.0" />

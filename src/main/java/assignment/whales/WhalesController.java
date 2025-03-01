@@ -47,6 +47,8 @@ public class WhalesController implements Initializable {
     private ComboBox size;
     @FXML
     private TextField name;
+    @FXML
+    private Label whaleSizeLabel;
     Media media;
     MediaPlayer player;
     OrderedDictionary database = null;
@@ -60,9 +62,8 @@ public class WhalesController implements Initializable {
     }
 
     public void find() {
-        DataKey key = new DataKey(this.name.getText(), this.size.getSelectionModel().getSelectedIndex());
         try {
-            whale = database.find(key);
+            whale = database.search(this.name.getText(),this.size.getSelectionModel().getSelectedIndex());
             showWhale();
         } catch (DictionaryException ex) {
             displayAlert(ex.getMessage());
@@ -113,6 +114,7 @@ public class WhalesController implements Initializable {
         image.setImage(whaleImage);
         title.setText(whale.getDataKey().getWhaleName());
         about.setText(whale.getAbout());
+        whaleSizeLabel.setText("Size: " + whale.getDataKey().getWhaleSize());
     }
 
     private void displayAlert(String msg) {

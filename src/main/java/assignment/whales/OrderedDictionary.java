@@ -200,7 +200,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public WhaleRecord predecessor(DataKey k) throws DictionaryException{
-        if(findMin(root).getData().getDataKey() == k){
+        if(findMin(root).getData().getDataKey().compareTo(k) == 0){
             throw new DictionaryException("This is the first whale");
         }
 
@@ -223,6 +223,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
                 if (current.getLeftChild() != null) {
                     predecessorNode = findMax(current.getLeftChild());
                 }
+                break;
             }
         }
         return predecessorNode.getData();
@@ -270,6 +271,35 @@ public class OrderedDictionary implements OrderedDictionaryADT {
             current = current.getRightChild();
         }
         return current.getData();
+    }
+
+    public WhaleRecord search(String searchTerm, int searchSize) throws DictionaryException {
+        if (root.isEmpty()) {
+            throw new DictionaryException("Dictionary is empty");
+        }
+        WhaleRecord result = searchRecursive(root, searchTerm.toLowerCase(), searchSize);
+        if(result == null){
+            throw new DictionaryException("No matching record found");
+        }
+        return result;
+    }
+
+    private WhaleRecord searchRecursive(Node node, String searchTerm, int searchSize) {
+        if (node == null) {
+            return null;
+        }
+        WhaleRecord leftResult = searchRecursive(node.getLeftChild(), searchTerm, searchSize);
+        if(leftResult != null) {
+            return leftResult;
+        }
+        DataKey key = node.getData().getDataKey();
+        String whaleNameLower = key.getWhaleName().toLowerCase();
+        if (whaleNameLower.contains(searchTerm)) {
+            if (searchSize == 0 || key.getWhaleSize() == searchSize) {
+                return node.getData();
+            }
+        }
+        return searchRecursive(node.getRightChild(), searchTerm, searchSize);
     }
       
     /* Returns true if the dictionary is empty, and true otherwise. */
